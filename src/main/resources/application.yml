@@ -1,0 +1,31 @@
+spring:
+  servlet:
+    multipart:
+      max-file-size: 50MB
+      max-request-size: 50MB
+  datasource:
+    url: jdbc:mariadb://freelect-springboot2-webservice.cs3ybrg1pnrh.ap-northeast-2.rds.amazonaws.com:3306/freelec_springboot2_webservice?characterEncoding=UTF-8
+    username: jojoldu
+    password: 12345678
+    driver-class-name: org.mariadb.jdbc.Driver
+  profiles:
+    include: oauth
+  jpa:
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        format_sql: true
+
+  devtools:
+    livereload:
+      enabled: true
+
+
+logging:
+  level:
+    org.hibernate.SQL: debug
+    org.hibernate.type: trace
+
+path:
+  local: /src/static/img

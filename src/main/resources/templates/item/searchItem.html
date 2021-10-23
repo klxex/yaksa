@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html xmlns:th="www.thymeleaf.org">
+<head>
+    <th:block th:include="fragment/header::header"/>
+    <title>약검색</title>
+</head>
+<th:block th:include="fragment/bodyHeader::bodyHeader"/>
+
+<div class="container-fluid p-5 text-center">
+    <h1>약 검색하기</h1>
+</div>
+<div class="container mt-3" style="display:flex;justify-content:center">
+        <Input type="text" id="Text"/>
+        <button id="searchAll">전체 검색</button>
+        <button id="searchTitle">제목 검색</button>
+</div>
+
+<div id="list" class="container d-flex flex-wrap">
+
+</div>
+
+
+<!--<div class="card" style="width:400px">-->
+<!--    <img class="card-img-top" src="img_avatar1.png" alt="Card image">-->
+<!--    <div class="card-body">-->
+<!--        <h4 class="card-title">John Doe</h4>-->
+<!--        <p class="card-text">Some example text.</p>-->
+<!--        <a href="#" class="btn btn-primary">See Profile</a>-->
+<!--    </div>-->
+<!--</div>-->
+<script>
+    const searchAll=document.querySelector("#searchAll");
+    const searchTitle=document.querySelector("#searchTitle");
+
+    const all=async ()=>{
+      try{
+        const url="http://ec2-15-164-160-161.ap-northeast-2.compute.amazonaws.com:8080/items";
+        const response=await axios.get(url);
+        console.log(response.data);
+        const lists= response.data;
+        const listElement=document.querySelector("#list");
+
+        $('#list').empty();
+
+        for(let i=0;i<lists.length;i++){
+            const card=document.createElement('div');
+            const cardImgTop=document.createElement('img');
+            const cardBody=document.createElement('div');
+            const cardTitle=document.createElement('h4');
+            const cardText=document.createElement('p');
+            const btn=document.createElement('a');
+
+            card.setAttribute("class","card col-md-4");
+
+            cardImgTop.setAttribute("class","card-img-top");
+            cardImgTop.setAttribute("src","http://ec2-15-164-160-161.ap-northeast-2.compute.amazonaws.com:8080/images/"+lists[i].fileDTO.id);
+
+            cardTitle.setAttribute("class","card-title text-center");
+
+            cardText.setAttribute("class","card-text text-center");
+
+            cardBody.setAttribute("class","card-body");
+
+            btn.setAttribute("class","btn btn-primary");
+            btn.append("장바구니 담기");
+
+            cardTitle.append(lists[i].name);
+            cardText.append(lists[i].description);
+
+            cardBody.append(cardTitle);
+            cardBody.append(cardText);
+            cardBody.append(btn);
+
+
+            card.append(cardImgTop);
+            card.append(cardBody);
+            listElement.append(card);
+
+        }
+      }
+      catch(error){
+        console.log(error);
+      }
+    };
+
+    const title=async ()=>{
+       try{
+            const text=document.querySelector("#Text");
+            const url="http://ec2-15-164-160-161.ap-northeast-2.compute.amazonaws.com:8080/items?query="+text.value();
+            const response=await axios.get(url);
+            const lists= response.data;
+            const listElement=document.querySelector("#list");
+
+            for(let i=0;i<lists.length;i++){
+                const child=document.createElement('div');
+                child.setAttribute("class","cols-md-3 mt-3 border");
+                child.append(lists[i].name);
+                listElement.append(child);
+            }
+
+       }
+       catch(error){
+
+       }
+    };
+
+    searchAll.addEventListener("click",all);
+    searchTitle.addEventListener("click",title);
+</script>
+</html>

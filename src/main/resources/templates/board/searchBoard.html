@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="www.thymeleaf.org">
+<head>
+    <th:block th:include="fragment/header::header"/>
+    <title>자유게시판</title>
+    <style>
+        .row{
+        align-content:"center";
+        }
+    </style>
+</head>
+<body>
+<th:block th:include="fragment/bodyHeader::bodyHeader"/>
+
+<div class="container-fluid p-5 text-center">
+    <h1>자유게시판</h1>
+</div>
+<div class="container mt-5">
+    <div class="container col-md-8">
+        <div class="row">
+        <table class="table">
+            <thead>
+            <tr class="table-primary">>
+                <th>번호</th>
+                <th>제목</th>
+                <th>작성자</th>
+                <th>날짜</th>
+                <th>조회수</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="table-info" th:each="list:${boardList}">
+                <td><a th:onclick="|location.href='@{/board}?id=${list.id}'|" th:text="${list.id}"/></td>
+                <td th:text="${list.title}"></td>
+                <td th:text="${list.writer}"></td>
+                <td>날짜 미정</td>
+                <td th:text="${list.readCount}"></td>
+            </tr>
+            </tbody>
+        </table>
+        </div>
+        <div class="row">
+            <th:block th:with="prev=${boardList.number>=1}?${boardList.number-1}:0,next=${boardList.number<boardList.totalPages-1}?${boardList.number+1}:${boardList.number}">
+                    <nav aria-label="Page navigation example">
+                        <ul class="pagination" style="justify-content: center" align="center" th:with="start=${T(Math).floor(boardList.number/10)*10+1},
+                    last=(${start+9<boardList.totalPages? start+9: boardList.totalPages})">
+                            <li class="page-item"><a class="page-link" th:href="@{/searchBoard(boardNum=${prev+1})}">Previous</a></li>
+                            <li th:each="i:${#numbers.sequence(start,last)}" class="page-item"><a class="page-link" th:text="${i}"
+                                                                                                  th:href="@{/searchBoard(boardNum=${i})}"></a>
+                            </li>
+                            <li class="page-item"><a class="page-link" th:href="@{/searchBoard(boardNum=${next+1})}">Next</a></li>
+
+                        </ul>
+                    </nav>
+            </th:block>
+        </div>
+        <div class="row" style="text-align:center">
+            <div style="display:inline-block">
+                <button onclick="location.href='/createBoard'">글작성</button>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
