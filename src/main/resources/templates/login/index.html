@@ -10,13 +10,13 @@
         <p class="row">
         <h1 style="font-color:blue">JJING YAKSA</h1></p>
 
-        <form class="row mb-3" method="post" action="/loginProcess" th:object="${loginDTO}">
+        <form th:if="${loginUser==null}" class="row mb-3" method="post" action="/loginProcess">
             <div class="form-floating">
-                <input class="form-control" th:field="*{email}" name="email" id="floatingInput"><br>
+                <input class="form-control" name="username" id="floatingInput"><br>
                 <label th:for="floatingInput">Email address</label>
             </div>
             <div class="form-floating">
-                <input class="form-control" th:field="*{password}" name="password" type="password"
+                <input class="form-control" name="password" type="password"
                        id="floatingPassword"/>
                 <label th:for="floatingPassword">Password</label>
             </div>
@@ -32,8 +32,8 @@
         <a href="signup">회원가입</a>
         <a href="/oauth2/authorization/google" class="btn btn-success active" role="button">Google Login</a>
         <a href="/oauth2/authorization/naver" class="btn btn-secondary active" role="button">Naver Login</a>
-        <a th:if="${userName!=null}" href="/logout" class="btn btn-info active" role="button">Logout</a>
-        <h2 th:if="${userName!=null}" th:text='${"안녕하세요:"+userName+"님"}'></h2>
+        <a th:if="${loginUser!=null}" href="/logout" class="btn btn-info active" role="button">Logout</a>
+        <h2 th:if="${loginUser!=null}" th:text='${"안녕하세요:"+loginUser+"님"}'></h2>
     </div>
 </div>
 <!--    <div>-->

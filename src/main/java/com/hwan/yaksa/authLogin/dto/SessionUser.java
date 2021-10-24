@@ -1,4 +1,4 @@
-package com.hwan.yaksa.config.auth.dto;
+package com.hwan.yaksa.authLogin.dto;
 
 
 import com.hwan.yaksa.domain.user.Account;

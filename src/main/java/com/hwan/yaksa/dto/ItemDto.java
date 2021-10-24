@@ -7,7 +7,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class itemDto {
+public class ItemDto {
 
     private String name;
     private String description;
@@ -16,7 +16,7 @@ public class itemDto {
     private FileDto fileDTO;
 
     @Builder
-    public itemDto(String name, String description, int count, int price, FileDto fileDTO){
+    public ItemDto(String name, String description, int count, int price, FileDto fileDTO){
         this.name=name;
         this.description=description;
         this.count=count;

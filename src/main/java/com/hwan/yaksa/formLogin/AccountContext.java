@@ -1,5 +1,7 @@
-package com.hwan.yaksa.domain.user;
+package com.hwan.yaksa.formLogin;
 
+import com.hwan.yaksa.domain.user.Account;
+import com.hwan.yaksa.domain.user.Role;
 import lombok.Getter;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

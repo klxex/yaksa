@@ -1,4 +1,4 @@
-package com.hwan.yaksa.config.auth;
+package com.hwan.yaksa.authLogin;
 
 
 import java.lang.annotation.ElementType;

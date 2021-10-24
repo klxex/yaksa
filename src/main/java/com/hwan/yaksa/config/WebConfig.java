@@ -1,7 +1,6 @@
 package com.hwan.yaksa.config;
 
-import com.hwan.yaksa.config.auth.LoginUserArgumentResolver;
-import com.hwan.yaksa.interceptor.AuthInterceptor;
+import com.hwan.yaksa.authLogin.LoginUserArgumentResolver;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.method.support.HandlerMethodArgumentResolver;
@@ -13,7 +12,7 @@ import java.util.List;
 @Configuration
 @RequiredArgsConstructor
 public class WebConfig implements WebMvcConfigurer {
-    private final AuthInterceptor authInterceptor;
+
     private final LoginUserArgumentResolver loginUserArgumentResolver;
 
     @Override
@@ -25,5 +24,7 @@ public class WebConfig implements WebMvcConfigurer {
     public void addArgumentResolvers(List<HandlerMethodArgumentResolver> argumentResolvers) {
         argumentResolvers.add(loginUserArgumentResolver);
     }
+
+
 }
 

@@ -2,7 +2,7 @@ package com.hwan.yaksa.service;
 
 import com.hwan.yaksa.domain.Image;
 import com.hwan.yaksa.domain.Item;
-import com.hwan.yaksa.dto.itemDto;
+import com.hwan.yaksa.dto.ItemDto;
 import com.hwan.yaksa.repository.ImageRepository;
 import com.hwan.yaksa.repository.ItemRepository;
 import lombok.RequiredArgsConstructor;
@@ -34,7 +34,7 @@ public class ItemServiceImpl implements ItemService {
         return file;
     }
 
-    public void insertItem(itemDto itemDTO, MultipartFile multipartFile){
+    public void insertItem(ItemDto itemDTO, MultipartFile multipartFile){
         try {
             File dir = new File(LOCAL_DIR);
             File file = new File(LOCAL_DIR+File.separator+multipartFile.getOriginalFilename());

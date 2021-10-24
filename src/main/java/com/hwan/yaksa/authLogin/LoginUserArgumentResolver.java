@@ -1,6 +1,6 @@
-package com.hwan.yaksa.config.auth;
+package com.hwan.yaksa.authLogin;
 
-import com.hwan.yaksa.config.auth.dto.SessionUser;
+import com.hwan.yaksa.authLogin.dto.SessionUser;
 import lombok.RequiredArgsConstructor;
 import org.springframework.core.MethodParameter;
 import org.springframework.stereotype.Component;

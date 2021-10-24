@@ -1,10 +1,10 @@
-package com.hwan.yaksa.restcontroller;
+package com.hwan.yaksa.controller;
 
 
 import com.hwan.yaksa.annotation.Auth;
 import com.hwan.yaksa.domain.Item;
 import com.hwan.yaksa.dto.FileDto;
-import com.hwan.yaksa.dto.itemDto;
+import com.hwan.yaksa.dto.ItemDto;
 import com.hwan.yaksa.service.ItemService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.core.io.InputStreamResource;
@@ -48,9 +48,9 @@ public class ItemRestController {
 
     @Auth
     @GetMapping("/items")
-    public List<itemDto> searchItem(@RequestParam(value="query",required=false) String query){
+    public List<ItemDto> searchItem(@RequestParam(value="query",required=false) String query){
         List<Item> items;
-        List<itemDto> itemDTOs = new LinkedList<>();
+        List<ItemDto> itemDTOS = new LinkedList<>();
         if(query==null){
             items=itemService.findAllItem();
         }
@@ -65,7 +65,7 @@ public class ItemRestController {
                         .name(item.getName())
                         .build();
 
-                itemDto itemDTO= itemDto.builder()
+                ItemDto itemDTO= ItemDto.builder()
                         .name(item.getName())
                         .count(item.getCount())
                         .description(item.getDescription())
@@ -73,25 +73,25 @@ public class ItemRestController {
                         .fileDTO(fileDTO)
                         .build();
 
-                itemDTOs.add(itemDTO);
+                itemDTOS.add(itemDTO);
             }
         }
         catch(Exception e){
             e.printStackTrace();
         }
 
-        return itemDTOs;
+        return itemDTOS;
     }
 
     @PostMapping("/items")
-    public itemDto addItem(
+    public ItemDto addItem(
             @RequestParam(value="name",required = false) String name,
             @RequestParam(value="description",required = false) String description,
             @RequestParam(value="count",required = false) int count,
             @RequestParam(value="price",required = false) int price,
             @RequestParam(value="file",required = true) MultipartFile multipartFile) {
 
-        itemDto itemDTO= itemDto.builder()
+        ItemDto itemDTO= ItemDto.builder()
                 .name(name)
                 .description(description)
                 .count(count)

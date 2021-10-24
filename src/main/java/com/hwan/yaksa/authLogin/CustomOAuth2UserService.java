@@ -1,7 +1,7 @@
-package com.hwan.yaksa.config.auth;
+package com.hwan.yaksa.authLogin;
 
-import com.hwan.yaksa.config.auth.dto.OAuthAttributes;
-import com.hwan.yaksa.config.auth.dto.SessionUser;
+import com.hwan.yaksa.authLogin.dto.OAuthAttributes;
+import com.hwan.yaksa.authLogin.dto.SessionUser;
 import com.hwan.yaksa.domain.user.Account;
 import com.hwan.yaksa.repository.AccountRepository;
 import lombok.RequiredArgsConstructor;

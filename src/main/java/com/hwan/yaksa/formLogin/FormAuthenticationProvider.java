@@ -1,6 +1,6 @@
-package com.hwan.yaksa.domain.user;
+package com.hwan.yaksa.formLogin;
 
-import com.hwan.yaksa.service.CustomUserDetailsService;
+import com.hwan.yaksa.authLogin.dto.SessionUser;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -10,11 +10,13 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
 
+import javax.servlet.http.HttpSession;
+
 @RequiredArgsConstructor
 @Component
 public class FormAuthenticationProvider implements AuthenticationProvider {
     private final CustomUserDetailsService customUserDetailsService;
-    private final BCryptPasswordEncoder passwordEncoder;
+//    private final BCryptPasswordEncoder passwordEncoder;
 
     @Override
     public Authentication authenticate(Authentication authentication) throws AuthenticationException {
@@ -24,7 +26,10 @@ public class FormAuthenticationProvider implements AuthenticationProvider {
         AccountContext accountContext = (AccountContext) customUserDetailsService.loadUserByUsername(username);
         String passwordFromDb = accountContext.getAccount().getPassword();
 
+        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder(); //주입 확인 필요
+        System.out.println("비밀번호 확인");
         if (!passwordEncoder.matches(password, passwordFromDb)) {
+            System.out.println("비밀번호 틀림");
             throw new BadCredentialsException("비밀번호가 틀립니다.");
         }
 
