@@ -2,8 +2,8 @@ package com.hwan.yaksa.config.auth;
 
 import com.hwan.yaksa.config.auth.dto.OAuthAttributes;
 import com.hwan.yaksa.config.auth.dto.SessionUser;
-import com.hwan.yaksa.domain.user.User;
-import com.hwan.yaksa.repository.UserRepository;
+import com.hwan.yaksa.domain.user.Account;
+import com.hwan.yaksa.repository.AccountRepository;
 import lombok.RequiredArgsConstructor;
 
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -22,7 +22,7 @@ import java.util.Collections;
 @RequiredArgsConstructor
 @Service
 public class CustomOAuth2UserService implements OAuth2UserService<OAuth2UserRequest, OAuth2User> {
-    private final UserRepository userRepository;
+    private final AccountRepository accountRepository;
     private final HttpSession httpSession;
 
     @Override
@@ -36,21 +36,21 @@ public class CustomOAuth2UserService implements OAuth2UserService<OAuth2UserRequ
 
         OAuthAttributes attributes = OAuthAttributes.of(registrationId, userNameAttributeName, oAuth2User.getAttributes());
 
-        User user = saveOrUpdate(attributes);
-        httpSession.setAttribute("user", new SessionUser(user));
+        Account account = saveOrUpdate(attributes);
+        httpSession.setAttribute("user", new SessionUser(account));
 
         return new DefaultOAuth2User(
-                Collections.singleton(new SimpleGrantedAuthority(user.getRoleKey())),
+                Collections.singleton(new SimpleGrantedAuthority(account.getRoleKey())),
                 attributes.getAttributes(),
                 attributes.getNameAttributeKey());
     }
 
 
-    private User saveOrUpdate(OAuthAttributes attributes) {
-        User user = userRepository.findByEmail(attributes.getEmail())
+    private Account saveOrUpdate(OAuthAttributes attributes) {
+        Account account = accountRepository.findByEmail(attributes.getEmail())
                 .map(entity -> entity.update(attributes.getName(),attributes.getPicture()))
                 .orElse(attributes.toEntity());
 
-        return userRepository.save(user);
+        return accountRepository.save(account);
     }
 }

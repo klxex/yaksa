@@ -1,13 +1,12 @@
 package com.hwan.yaksa.service;
 
 import com.hwan.yaksa.domain.Board;
-import com.hwan.yaksa.dto.BoardDTO;
+import com.hwan.yaksa.dto.BoardDto;
 import com.hwan.yaksa.repository.BoardRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
-import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -15,7 +14,7 @@ public class BoardServiceImpl implements BoardService {
     private final int SIZE=10;
     private final BoardRepository boardRepository;
 
-    public void createBoard(BoardDTO boardDTO){
+    public void createBoard(BoardDto boardDTO){
         Board board=new Board();
         board.setTitle(boardDTO.getTitle());
         board.setBoardContent(boardDTO.getBoardContent());

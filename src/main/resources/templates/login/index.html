@@ -9,9 +9,10 @@
     <div class="container col-md-3 col-sm-3">
         <p class="row">
         <h1 style="font-color:blue">JJING YAKSA</h1></p>
-        <form class="row mb-3" method="post" action="/tryLogin" th:object="${loginDTO}">
+
+        <form class="row mb-3" method="post" action="/loginProcess" th:object="${loginDTO}">
             <div class="form-floating">
-                <input class="form-control" th:field="*{login_id}" name="login_id" id="floatingInput"><br>
+                <input class="form-control" th:field="*{email}" name="email" id="floatingInput"><br>
                 <label th:for="floatingInput">Email address</label>
             </div>
             <div class="form-floating">
@@ -27,7 +28,8 @@
             </div>
             <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
         </form>
-        <a href="join">회원가입</a>
+
+        <a href="signup">회원가입</a>
         <a href="/oauth2/authorization/google" class="btn btn-success active" role="button">Google Login</a>
         <a href="/oauth2/authorization/naver" class="btn btn-secondary active" role="button">Naver Login</a>
         <a th:if="${userName!=null}" href="/logout" class="btn btn-info active" role="button">Logout</a>

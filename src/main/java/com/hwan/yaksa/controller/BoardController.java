@@ -2,7 +2,7 @@ package com.hwan.yaksa.controller;
 
 
 import com.hwan.yaksa.annotation.Auth;
-import com.hwan.yaksa.dto.BoardDTO;
+import com.hwan.yaksa.dto.BoardDto;
 import com.hwan.yaksa.service.BoardServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -37,13 +37,13 @@ public class BoardController {
     @Auth
     @GetMapping("/createBoard")
     public String createBoard(Model model) {
-        model.addAttribute("boardDTO", new BoardDTO());
+        model.addAttribute("boardDTO", new BoardDto());
         return "board/createBoard";
     }
 
     @Auth
     @PostMapping("/createWord")
-    public String createWord(@Valid  @ModelAttribute("boardDTO")BoardDTO boardDTO) {
+    public String createWord(@Valid  @ModelAttribute("boardDTO") BoardDto boardDTO) {
          boardServiceImpl.createBoard(boardDTO);
          return "redirect:/searchBoard";
 

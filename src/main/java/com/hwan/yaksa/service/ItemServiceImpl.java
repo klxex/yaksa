@@ -2,7 +2,7 @@ package com.hwan.yaksa.service;
 
 import com.hwan.yaksa.domain.Image;
 import com.hwan.yaksa.domain.Item;
-import com.hwan.yaksa.dto.ItemDTO;
+import com.hwan.yaksa.dto.itemDto;
 import com.hwan.yaksa.repository.ImageRepository;
 import com.hwan.yaksa.repository.ItemRepository;
 import lombok.RequiredArgsConstructor;
@@ -10,7 +10,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -35,7 +34,7 @@ public class ItemServiceImpl implements ItemService {
         return file;
     }
 
-    public void insertItem(ItemDTO itemDTO, MultipartFile multipartFile){
+    public void insertItem(itemDto itemDTO, MultipartFile multipartFile){
         try {
             File dir = new File(LOCAL_DIR);
             File file = new File(LOCAL_DIR+File.separator+multipartFile.getOriginalFilename());

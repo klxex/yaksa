@@ -1,8 +1,8 @@
 package com.hwan.yaksa.config.auth.dto;
 
 
+import com.hwan.yaksa.domain.user.Account;
 import com.hwan.yaksa.domain.user.Role;
-import com.hwan.yaksa.domain.user.User;
 import lombok.Builder;
 import lombok.Getter;
 
@@ -56,8 +56,8 @@ public class OAuthAttributes {
                 .build();
     }
 
-    public User toEntity() {
-        return User.builder()
+    public Account toEntity() {
+        return Account.builder()
                 .name(name)
                 .email(email)
                 .role(Role.GUEST)

@@ -2,14 +2,11 @@ package com.hwan.yaksa.restcontroller;
 
 
 import com.hwan.yaksa.annotation.Auth;
-import com.hwan.yaksa.domain.Image;
 import com.hwan.yaksa.domain.Item;
-import com.hwan.yaksa.dto.FileDTO;
-import com.hwan.yaksa.dto.ItemDTO;
+import com.hwan.yaksa.dto.FileDto;
+import com.hwan.yaksa.dto.itemDto;
 import com.hwan.yaksa.service.ItemService;
-import com.hwan.yaksa.service.ItemServiceImpl;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.core.io.InputStreamSource;
 import org.springframework.http.HttpHeaders;
@@ -20,7 +17,6 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.servlet.http.HttpServletResponse;
 import java.io.*;
 import java.util.LinkedList;
-import java.util.Map;
 import java.util.List;
 
 @RestController
@@ -52,9 +48,9 @@ public class ItemRestController {
 
     @Auth
     @GetMapping("/items")
-    public List<ItemDTO> searchItem(@RequestParam(value="query",required=false) String query){
+    public List<itemDto> searchItem(@RequestParam(value="query",required=false) String query){
         List<Item> items;
-        List<ItemDTO> itemDTOs = new LinkedList<>();
+        List<itemDto> itemDTOs = new LinkedList<>();
         if(query==null){
             items=itemService.findAllItem();
         }
@@ -64,12 +60,12 @@ public class ItemRestController {
 
         try{
             for(Item item:items){
-                FileDTO fileDTO=FileDTO.builder()
+                FileDto fileDTO= FileDto.builder()
                         .id(item.getImage().getId())
                         .name(item.getName())
                         .build();
 
-                ItemDTO itemDTO=ItemDTO.builder()
+                itemDto itemDTO= itemDto.builder()
                         .name(item.getName())
                         .count(item.getCount())
                         .description(item.getDescription())
@@ -88,14 +84,14 @@ public class ItemRestController {
     }
 
     @PostMapping("/items")
-    public ItemDTO addItem(
+    public itemDto addItem(
             @RequestParam(value="name",required = false) String name,
             @RequestParam(value="description",required = false) String description,
             @RequestParam(value="count",required = false) int count,
             @RequestParam(value="price",required = false) int price,
             @RequestParam(value="file",required = true) MultipartFile multipartFile) {
 
-        ItemDTO itemDTO=ItemDTO.builder()
+        itemDto itemDTO= itemDto.builder()
                 .name(name)
                 .description(description)
                 .count(count)

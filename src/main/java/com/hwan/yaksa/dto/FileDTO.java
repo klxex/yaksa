@@ -7,14 +7,14 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class FileDTO {
+public class FileDto {
     public Long id;
     public String name;
     public String contentType;
 
 
     @Builder
-    public FileDTO(Long id,String name,String contentType){
+    public FileDto(Long id, String name, String contentType){
         this.id=id;
         this.name=name;
         this.contentType=contentType;

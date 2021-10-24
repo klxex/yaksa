@@ -7,7 +7,7 @@ import lombok.*;
 @Setter
 @ToString
 @NoArgsConstructor
-public class BoardDTO {
+public class BoardDto {
     private String title;
     private String boardContent;
 
@@ -17,7 +17,7 @@ public class BoardDTO {
     }
 
     @Builder
-    public BoardDTO(String title,String boardContent){
+    public BoardDto(String title, String boardContent){
         this.title=title;
         this.boardContent=boardContent;
     }

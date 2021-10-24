@@ -1,15 +1,40 @@
 package com.hwan.yaksa.dto;
 
+import com.hwan.yaksa.domain.user.Account;
+import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.springframework.data.annotation.CreatedDate;
-
-import java.time.LocalDateTime;
-import java.util.Date;
 
 @Getter
 @Setter
-public class LoginDTO {
-    public String login_id;
-    public String password;
+@NoArgsConstructor
+public class LoginDto {
+    private String name;
+    private String email;
+    private String password;
+    private String picture;
+
+    @Builder
+    public LoginDto(String name, String email, String password, String picture) {
+        this.name = name;
+        this.email = email;
+        this.password = password;
+        this.picture = picture;
+    }
+
+
+
+    public Account toEntity(){
+       return Account.builder()
+                .name(name)
+                .email(email)
+                .picture(picture)
+                .password(password)
+                .build();
+    }
+
+
+
+
 }

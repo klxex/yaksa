@@ -2,8 +2,6 @@ package com.hwan.yaksa.interceptor;
 
 import com.hwan.yaksa.annotation.Auth;
 import com.hwan.yaksa.config.auth.dto.SessionUser;
-import com.hwan.yaksa.repository.MemberRepository;
-import com.hwan.yaksa.service.MemberService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import org.springframework.web.method.HandlerMethod;
