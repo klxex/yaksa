@@ -6,40 +6,41 @@
 </head>
 <th:block th:include="fragment/bodyHeader"/>
 
-<div class="container">
-        <div class= "container-fluid p-5 text-center">
-            <h1>JJING YAKSA</h1>
-        </div>
+<div>
+    <div class= "container-fluid p-5 text-center">
+        <h1>JJING YAKSA</h1>
+    </div>
 
-        <form th:if="${loginUser==null}" class="mb-3" method="post" action="/loginProcess">
-            <div class="form-floating">
-                <input class="form-control" name="username" id="floatingInput"><br>
-                <label th:for="floatingInput">Email address</label>
-            </div>
-            <div class="form-floating">
-                <input class="form-control" name="password" type="password"
-                       id="floatingPassword"/>
-                <label th:for="floatingPassword">Password</label>
-            </div>
+    <div class="container-fluid col-md-4" style="margin:0 auto">
+            <form th:if="${loginUser==null}" class="mb-3" method="post" action="/loginProcess">
+                <div class="form-floating">
+                    <input class="form-control" name="username" id="floatingInput"><br>
+                    <label th:for="floatingInput">Email address</label>
+                </div>
+                <div class="form-floating">
+                    <input class="form-control" name="password" type="password"
+                           id="floatingPassword"/>
+                    <label th:for="floatingPassword">Password</label>
+                </div>
 
-            <div class="checkbox mb-3">
-                <label>
-                    <input type="checkbox" value="remember-me"> Remember me
-                </label>
-            </div>
-            <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
-        </form>
+                <div class="checkbox mb-3">
+                    <label>
+                        <input type="checkbox" value="remember-me"> Remember me
+                    </label>
+                </div>
+                <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
+            </form>
 
-        <a th:if="${loginUser==null}" href="signup">회원가입</a>
-        <a th:if="${loginUser==null}" href="/oauth2/authorization/google" class="btn btn-success active" role="button">Google
-            Login</a>
-        <a th:if="${loginUser==null}" href="/oauth2/authorization/naver" class="btn btn-secondary active" role="button">Naver
-            Login</a>
-        <h2 th:if="${loginUser!=null}" th:text='${"안녕하세요:"+loginUser+"님"}'></h2>
-        <a th:if="${loginUser!=null}" href="/logout" class="btn btn-info active" role="button">Logout</a>
+            <a th:if="${loginUser==null}" href="signup">회원가입</a>
+            <a th:if="${loginUser==null}" href="/oauth2/authorization/google" class="btn btn-success active" role="button">Google
+                Login</a>
+            <a th:if="${loginUser==null}" href="/oauth2/authorization/naver" class="btn btn-secondary active" role="button">Naver
+                Login</a>
+            <h2 th:if="${loginUser!=null}" th:text='${"안녕하세요:"+loginUser+"님"}'></h2>
+            <a th:if="${loginUser!=null}" href="/logout" class="btn btn-info active" role="button">Logout</a>
 
+    </div>
 </div>
-
 <!--    <div>-->
 <!--        <div class="col-md-12">-->
 <!--            <div class="row">-->
