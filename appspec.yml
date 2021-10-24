@@ -10,11 +10,11 @@ permissions:
     pattern: "**"
     owner: ec2-user
     group: ec2-user
-    mode: 664
+    mode: 764
 
 hooks:
   ApplicationStart:
     - location: deploy.sh
       timeout: 60
       runas: ec2-user
-#      ##
+#      ###
