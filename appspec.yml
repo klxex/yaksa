@@ -10,7 +10,8 @@ permissions:
     pattern: "**"
     owner: ec2-user
     group: ec2-user
-    mode: 777
+    mode: 664
+
 hooks:
   ApplicationStart:
     - location: deploy.sh
