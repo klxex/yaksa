@@ -27,9 +27,7 @@ public class FormAuthenticationProvider implements AuthenticationProvider {
         String passwordFromDb = accountContext.getAccount().getPassword();
 
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder(); //주입 확인 필요
-        System.out.println("비밀번호 확인");
         if (!passwordEncoder.matches(password, passwordFromDb)) {
-            System.out.println("비밀번호 틀림");
             throw new BadCredentialsException("비밀번호가 틀립니다.");
         }
 
