@@ -1,5 +1,8 @@
 package com.hwan.yaksa.domain.user;
 
+import com.hwan.yaksa.domain.Address;
+import com.hwan.yaksa.domain.Board;
+import com.hwan.yaksa.domain.Cart;
 import com.hwan.yaksa.domain.TimeEntity;
 import lombok.Builder;
 import lombok.Getter;
@@ -7,6 +10,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @Setter
@@ -15,6 +20,7 @@ import javax.persistence.*;
 public class Account extends TimeEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="account_id")
     private Long id;
 
     @Column(nullable = false)
@@ -32,6 +38,15 @@ public class Account extends TimeEntity {
 
     @Column
     private String picture;
+
+//    @Column
+//    private Address address;
+
+    @OneToOne(mappedBy="account")
+    private Cart cart;
+
+    @OneToMany(mappedBy = "account")
+    private List<Board> boards= new ArrayList<>();
 
 
     @Builder
@@ -54,7 +69,10 @@ public class Account extends TimeEntity {
         return this;
     }
 
-
+    public void createBoard(Board board){
+        boards.add(board);
+        board.setAccount(this);
+    }
 
 
 

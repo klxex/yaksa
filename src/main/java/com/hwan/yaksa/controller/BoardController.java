@@ -2,6 +2,8 @@ package com.hwan.yaksa.controller;
 
 
 import com.hwan.yaksa.annotation.Auth;
+import com.hwan.yaksa.authLogin.LoginUser;
+import com.hwan.yaksa.authLogin.dto.SessionUser;
 import com.hwan.yaksa.dto.BoardDto;
 import com.hwan.yaksa.service.BoardServiceImpl;
 import lombok.RequiredArgsConstructor;
@@ -43,8 +45,8 @@ public class BoardController {
 
     @Auth
     @PostMapping("/createWord")
-    public String createWord(@Valid  @ModelAttribute("boardDTO") BoardDto boardDTO) {
-         boardServiceImpl.createBoard(boardDTO);
+    public String createWord(@Valid  @ModelAttribute("boardDTO") BoardDto boardDTO, @LoginUser SessionUser sessionUser) {
+         boardServiceImpl.createBoard(boardDTO,sessionUser);
          return "redirect:/searchBoard";
 
     }

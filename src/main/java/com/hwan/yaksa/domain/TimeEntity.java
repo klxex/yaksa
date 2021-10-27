@@ -23,5 +23,4 @@ public class TimeEntity {
     private LocalDateTime modifiedDate;
 
 
-
 }

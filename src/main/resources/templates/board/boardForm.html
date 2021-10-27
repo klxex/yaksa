@@ -13,6 +13,7 @@
 </div>
 <div class="container mt-3">
     <div  th:object="${board}">
+            <div>작성자: <p class="border" th:text="${board.account.name}"/></div>
             <div>제목: <p class="border" th:text="${board.title}"/></div>
             <div>내용:</div>
             <div class="border" style="height:150px">

@@ -1,18 +1,28 @@
 package com.hwan.yaksa.domain;
 
 
+import com.hwan.yaksa.domain.user.Account;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
+
 
 @Entity
 @Getter
 @Setter
-public class Cart {
+public class Cart extends TimeEntity {
     @Id
     @GeneratedValue
+    @Column(name="cart_id")
     private Long id;
+
+    @OneToMany(mappedBy="cart")
+    private List<CartItem> cartItems = new ArrayList<>();
+
+    @OneToOne
+    @JoinColumn(name="account_id")
+    private Account account;
 }

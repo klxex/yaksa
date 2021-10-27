@@ -1,6 +1,7 @@
 package com.hwan.yaksa.domain;
 
 
+import com.hwan.yaksa.domain.user.Account;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -31,6 +32,9 @@ public class Board extends TimeEntity {
 
     private String writer;
 
+    @ManyToOne
+    @JoinColumn(name="account_id")
+    private Account account;
 
     @Builder
     public Board(String title,String writer,String boardContent,int readCount){
