@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 @EnableJpaAuditing
 @SpringBootApplication
 public class YaksaApplication {
-
+//comit
 	public static void main(String[] args) {
 		SpringApplication.run(YaksaApplication.class, args);
 	}
