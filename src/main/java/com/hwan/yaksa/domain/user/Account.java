@@ -45,7 +45,7 @@ public class Account extends TimeEntity {
     @OneToOne(mappedBy="account")
     private Cart cart;
 
-    @OneToMany(mappedBy = "account")
+    @OneToMany(mappedBy = "account",cascade=CascadeType.ALL)
     private List<Board> boards= new ArrayList<>();
 
 
