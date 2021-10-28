@@ -22,8 +22,8 @@ public class BoardServiceImpl implements BoardService {
         board.setTitle(boardDTO.getTitle());
         board.setBoardContent(boardDTO.getBoardContent());
         Account account=accountRepository.findByEmail(sessionUser.getEmail()).get();
-        boardRepository.save(board);
         account.createBoard(board);
+        boardRepository.save(board);
     }
 
     public Page<Board> findAll(Long boardNum){

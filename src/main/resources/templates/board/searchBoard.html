@@ -29,10 +29,10 @@
             </tr>
             </thead>
             <tbody>
-            <tr class="table-info" th:each="list:${boardList}" th:with="account=${list}">
+            <tr class="table-info" th:each="list:${boardList}">
                 <td><a th:onclick="|location.href='@{/board}?id=${list.id}'|" th:text="${list.id}"/></td>
                 <td th:text="${list.title}"></td>
-                <td th:text="${account.name}"></td>
+                <td th:text="${list.account?.name}"></td>
                 <td th:text="${list.createDate}"></td>
                 <td th:text="${list.readCount}"></td>
             </tr>
