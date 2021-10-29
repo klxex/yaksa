@@ -3,7 +3,7 @@ package com.hwan.yaksa.controller;
 
 import com.hwan.yaksa.authLogin.LoginUser;
 import com.hwan.yaksa.authLogin.dto.SessionUser;
-import com.hwan.yaksa.dto.LoginDto;
+import com.hwan.yaksa.formLogin.LoginDto;
 import com.hwan.yaksa.formLogin.CustomUserDetailsService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.context.SecurityContextHolder;

@@ -1,6 +1,7 @@
-package com.hwan.yaksa.dto;
+package com.hwan.yaksa.item;
 
 
+import com.hwan.yaksa.item.FileDto;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;

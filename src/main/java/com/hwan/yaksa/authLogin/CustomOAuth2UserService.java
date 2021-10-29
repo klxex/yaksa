@@ -3,7 +3,7 @@ package com.hwan.yaksa.authLogin;
 import com.hwan.yaksa.authLogin.dto.OAuthAttributes;
 import com.hwan.yaksa.authLogin.dto.SessionUser;
 import com.hwan.yaksa.domain.user.Account;
-import com.hwan.yaksa.repository.AccountRepository;
+import com.hwan.yaksa.formLogin.AccountRepository;
 import lombok.RequiredArgsConstructor;
 
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

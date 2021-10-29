@@ -1,4 +1,4 @@
-package com.hwan.yaksa.repository;
+package com.hwan.yaksa.formLogin;
 
 import com.hwan.yaksa.domain.user.Account;
 import org.springframework.data.jpa.repository.JpaRepository;

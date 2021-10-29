@@ -30,7 +30,7 @@
             </thead>
             <tbody>
             <tr class="table-info" th:each="list:${boardList}">
-                <td><a th:onclick="|location.href='@{/board}?id=${list.id}'|" th:text="${list.id}"/></td>
+                <td><a class="btn btn-primary" th:onclick="|location.href='@{/board}?id=${list.id}'|" th:text="${list.id}"/></td>
                 <td th:text="${list.title}"></td>
                 <td th:text="${list.account.name}"></td>
                 <td th:text="${list.createdDate.toString()}">날짜 미정</td>

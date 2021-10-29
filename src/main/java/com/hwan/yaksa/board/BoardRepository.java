@@ -1,4 +1,4 @@
-package com.hwan.yaksa.repository;
+package com.hwan.yaksa.board;
 
 import com.hwan.yaksa.domain.Board;
 import org.springframework.data.domain.Page;

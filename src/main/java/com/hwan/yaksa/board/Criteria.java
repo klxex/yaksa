@@ -1,4 +1,4 @@
-package com.hwan.yaksa.paging;
+package com.hwan.yaksa.board;
 
 import lombok.Getter;
 import lombok.Setter;

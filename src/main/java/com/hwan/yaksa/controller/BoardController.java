@@ -4,8 +4,8 @@ package com.hwan.yaksa.controller;
 import com.hwan.yaksa.annotation.Auth;
 import com.hwan.yaksa.authLogin.LoginUser;
 import com.hwan.yaksa.authLogin.dto.SessionUser;
-import com.hwan.yaksa.dto.BoardDto;
-import com.hwan.yaksa.service.BoardServiceImpl;
+import com.hwan.yaksa.board.BoardDto;
+import com.hwan.yaksa.board.BoardServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -31,7 +31,6 @@ public class BoardController {
     @Auth
     @GetMapping("/board")
     public String getBoard(@RequestParam("id") Long boardNum, Model model) {
-
         model.addAttribute("board",boardServiceImpl.find(boardNum));
         return "board/boardForm";
     }
@@ -50,6 +49,8 @@ public class BoardController {
          return "redirect:/searchBoard";
 
     }
+
+
 
 
 }

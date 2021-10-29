@@ -1,4 +1,4 @@
-package com.hwan.yaksa.dto;
+package com.hwan.yaksa.formLogin;
 
 import com.hwan.yaksa.domain.user.Account;
 import com.hwan.yaksa.domain.user.Role;

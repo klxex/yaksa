@@ -11,29 +11,87 @@
 <div class="container-fluid p-5 text-center">
     <h1>글 보기</h1>
 </div>
+
 <div class="container mt-3">
-    <div  th:object="${board}">
-            <div>작성자: <p class="border" th:text="${board.account?.name}"/></div>
-            <div>제목: <p class="border" th:text="${board.title}"/></div>
-            <div>내용:</div>
-            <div class="border" style="height:150px">
-                <p th:text=${board.boardContent}></p>
-            </div>
-    </div>
-    </hr>
-    <div class="card">
-        <div class="card-body">
-            <label for="comment">Comments:</label>
-            <textarea class="form-control" rows="5" id="comment" name="text"></textarea>
-            <a href="#" class="btn btn-primary">댓글 달기</a>
+    <div th:object="${board}">
+        <div>작성자: <p class="border" th:text="${board.account?.name}"/></div>
+        <div>제목: <p class="border" th:text="${board.title}"/></div>
+        <div>내용:</div>
+        <div class="border" style="height:150px">
+            <p th:text=${board.boardContent}></p>
         </div>
     </div>
     </hr>
     <div class="card">
+        <div class="card-body">
+            <label for="content">Comments:</label>
+            <textarea class="form-control" rows="5" id="content" name="text"></textarea>
+            <a id="Button" type="button" class="btn btn-primary">댓글 달기</a>
+        </div>
+    </div>
+    </hr>
+    <div class="card" >
         <div class="card-header">댓글 리스트</div>
-        <ul id="reply-box" class="list-group">
-        </ul>
+        <div class="card-body" id="comment-list">
+<!--        <ul id="reply-box" class="list-group" th:if="${board.comments!=null}">-->
+            <div th:each="node:${board.comments}">
+                <div class="card">
+                    <div class="card-body">
+                        내용: <span th:text="${node.content}"></span>
+                        작성자: <span th:text="${node.account?.name}"></span>
+                    </div>
+                </div>
+            </div>
+<!--        </ul>-->
+        </div>
     </div>
 </div>
+<script th:inline="javascript">
+    const buttonElement = document.querySelector("#Button");
+
+    const getData= async ()=>{
+        try{
+            const url='/comments';
+            const formData = new FormData();
+            formData.append("content",document.querySelector("#content").value);
+            formData.append("boardId",[[${board.id}]]);
+            const response=await axios.post(url,formData);
+
+           const searchUrl='/board/'+[[${board.id}]]+'/comments';
+           const searchResponse = await axios.get(searchUrl);
+
+           const list = searchResponse.data;
+           const commentElement = document.querySelector("#comment-list");
+
+           $("#comment-list").empty();
+
+           for(let comment of list){
+                const card = document.createElement('div');
+                const cardBody = document.createElement('div');
+                const span1 = document.createElement('span');
+                const span2 = document.createElement('span');
+
+                card.setAttribute("class","card");
+                cardBody.setAttribute("class","cardBody");
+                span1.append(comment.content);
+                span2.append(comment.name);
+                cardBody.append("내용: ");
+                cardBody.append(span1);
+                cardBody.append("작성자: ");
+                cardBody.append(span2);
+                card.append(cardBody);
+
+                commentElement.append(card);
+           }
+
+        }
+        catch(error){
+            console.log(error);
+        }
+    };
+
+    buttonElement.addEventListener('click',getData);
+</script>
 </body>
 </html>
+

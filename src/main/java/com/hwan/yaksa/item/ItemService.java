@@ -1,7 +1,6 @@
-package com.hwan.yaksa.service;
+package com.hwan.yaksa.item;
 
 import com.hwan.yaksa.domain.Item;
-import com.hwan.yaksa.dto.ItemDto;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;

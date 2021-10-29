@@ -1,10 +1,7 @@
-package com.hwan.yaksa.service;
+package com.hwan.yaksa.item;
 
 import com.hwan.yaksa.domain.Image;
 import com.hwan.yaksa.domain.Item;
-import com.hwan.yaksa.dto.ItemDto;
-import com.hwan.yaksa.repository.ImageRepository;
-import com.hwan.yaksa.repository.ItemRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;

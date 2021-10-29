@@ -1,4 +1,4 @@
-package com.hwan.yaksa.dto;
+package com.hwan.yaksa.item;
 
 import lombok.Builder;
 import lombok.Getter;

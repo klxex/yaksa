@@ -1,4 +1,4 @@
-package com.hwan.yaksa.repository;
+package com.hwan.yaksa.item;
 
 import com.hwan.yaksa.domain.Item;
 import org.springframework.data.jpa.repository.JpaRepository;

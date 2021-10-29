@@ -1,11 +1,9 @@
-package com.hwan.yaksa.service;
+package com.hwan.yaksa.board;
 
 import com.hwan.yaksa.authLogin.dto.SessionUser;
 import com.hwan.yaksa.domain.Board;
 import com.hwan.yaksa.domain.user.Account;
-import com.hwan.yaksa.dto.BoardDto;
-import com.hwan.yaksa.repository.AccountRepository;
-import com.hwan.yaksa.repository.BoardRepository;
+import com.hwan.yaksa.formLogin.AccountRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -17,6 +15,7 @@ public class BoardServiceImpl implements BoardService {
     private final int SIZE=10;
     private final BoardRepository boardRepository;
     private final AccountRepository accountRepository;
+
     public void createBoard(BoardDto boardDTO, SessionUser sessionUser){
         Board board=new Board();
         board.setTitle(boardDTO.getTitle());

@@ -3,9 +3,9 @@ package com.hwan.yaksa.controller;
 
 import com.hwan.yaksa.annotation.Auth;
 import com.hwan.yaksa.domain.Item;
-import com.hwan.yaksa.dto.FileDto;
-import com.hwan.yaksa.dto.ItemDto;
-import com.hwan.yaksa.service.ItemService;
+import com.hwan.yaksa.item.FileDto;
+import com.hwan.yaksa.item.ItemDto;
+import com.hwan.yaksa.item.ItemService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.core.io.InputStreamSource;
