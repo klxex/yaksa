@@ -34,7 +34,7 @@
 
     const all=async ()=>{
       try{
-        const url="http://ec2-15-164-160-161.ap-northeast-2.compute.amazonaws.com:8080/items";
+        const url="/items";
         const response=await axios.get(url);
         console.log(response.data);
         const lists= response.data;
@@ -53,7 +53,7 @@
             card.setAttribute("class","card col-md-4");
 
             cardImgTop.setAttribute("class","card-img-top");
-            cardImgTop.setAttribute("src","http://ec2-15-164-160-161.ap-northeast-2.compute.amazonaws.com:8080/images/"+lists[i].fileDTO.id);
+            cardImgTop.setAttribute("src","/images/"+lists[i].fileDTO.id);
 
             cardTitle.setAttribute("class","card-title text-center");
 
@@ -86,7 +86,7 @@
     const title=async ()=>{
        try{
             const text=document.querySelector("#Text");
-            const url="http://ec2-15-164-160-161.ap-northeast-2.compute.amazonaws.com:8080/items?query="+text.value();
+            const url="/items?query="+text.value();
             const response=await axios.get(url);
             const lists= response.data;
             const listElement=document.querySelector("#list");
