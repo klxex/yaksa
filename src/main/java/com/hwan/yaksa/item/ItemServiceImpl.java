@@ -3,6 +3,7 @@ package com.hwan.yaksa.item;
 import com.hwan.yaksa.domain.Image;
 import com.hwan.yaksa.domain.Item;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -15,8 +16,9 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 public class ItemServiceImpl implements ItemService {
-    static Path p= Paths.get("");
-    static String LOCAL_DIR=p.toAbsolutePath().toString()+"/img";
+    static Path p= Paths.get(".");
+    @Value("${path.local}")
+    private String LOCAL_DIR;
     private final ItemRepository itemRepository;
     private final ImageRepository imageRepository;
 
