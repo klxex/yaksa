@@ -11,20 +11,42 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="/searchItem">약검색</a>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link active dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                               약 및 비타민
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+                                <li><a class="dropdown-item" href="/searchItem">약 검색</a></li>
+                                <li><a class="dropdown-item" href="/createItem">약 등록</a></li>
+                                <li><a class="dropdown-item" href="#">약 정리표</a></li>
+                            </ul>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="/createItem">약입력</a>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link active dropdown-toggle" href="#" id="board--list" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                게시판
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+                                <li><a class="dropdown-item" href="/searchBoard">자유게시판</a></li>
+                                <li><a class="dropdown-item" href="#">질문 게시판</a></li>
+                                <li><a class="dropdown-item" href="#">공지사항</a></li>
+                            </ul>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" href="/searchBoard">자유게시판</a>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link active dropdown-toggle" href="#" id="my--page" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                마이페이지
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+                                <li><a class="dropdown-item" href="#">장바구니</a></li>
+                                <li><a class="dropdown-item" href="#">구매 내역</a></li>
+                                <li><a class="dropdown-item" href="#">약 관리</a></li>
+                                <li><a class="dropdown-item" href="#">프로필 관리</a></li>
+                            </ul>
                         </li>
+
                         <li class="nav-item">
-                            <a class="nav-link active" href="#">약정리표</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" href="/myPage">마이페이지</a>
+                            <a class="nav-link active" href="#">관리자 페이지</a>
                         </li>
                     </ul>
 

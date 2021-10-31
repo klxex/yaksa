@@ -33,10 +33,24 @@ public class ItemServiceImpl implements ItemService {
         return file;
     }
 
+    public Item searchItem(Long id){
+        return itemRepository.findById(id).get();
+    }
+
     public void insertItem(ItemDto itemDTO, MultipartFile multipartFile){
+       Image image=Image.builder()
+            .dir(LOCAL_DIR)
+            .name(multipartFile.getOriginalFilename())
+            .build();
+
+        imageRepository.save(image);
+        Long id = image.getId();
+        String ext=multipartFile.getOriginalFilename().substring(multipartFile.getOriginalFilename().indexOf("."));
+        image.setName(id+ext);
+
         try {
             File dir = new File(LOCAL_DIR);
-            File file = new File(LOCAL_DIR+File.separator+multipartFile.getOriginalFilename());
+            File file = new File(LOCAL_DIR+File.separator+id+ext);
 
             if(!dir.exists()){
                 dir.mkdirs();
@@ -52,12 +66,7 @@ public class ItemServiceImpl implements ItemService {
 
         }
 
-        Image image=Image.builder()
-                .dir(LOCAL_DIR)
-                .name(multipartFile.getOriginalFilename())
-                .build();
 
-        imageRepository.save(image);
 
         Item item = Item.builder()
                 .name(itemDTO.getName())

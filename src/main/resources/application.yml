@@ -28,6 +28,6 @@ logging:
     org.hibernate.type: trace
 
 path:
-  local: /home/ec2-user/app/step2/img
+  local: ./img
 #/home/ec2-user/app/step2/img
 #./img

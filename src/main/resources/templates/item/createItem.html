@@ -9,30 +9,38 @@
 <div class="container-fluid p-5 text-center">
     <h1>약 입력</h1>
 </div>
-<div class="container" style="width:30%">
+<style>
+    input{
+    background-color: #ddd;
+    }
+</style>
+
+<div class="container" style="width:30%;background-color:lightyellow">
     <div class="mt-3">
         <div class="mb-3">
-            <label for="name" class="form-label">Name:</label>
+            <label for="name" class="form-label"><b>약 이름 :</b></label>
             <input type="text" class="form-control" id="name" >
         </div>
         <div class="mb-3">
-            <label for="description" class="form-label">Description:</label>
+            <label for="description" class="form-label"><b>내용 :</b></label>
             <input type="text" class="form-control" id="description" >
         </div>
         <div class="mb-3">
-            <label for="count" class="form-label">Count:</label>
+            <label for="count" class="form-label"><b>개수 :</b></label>
             <input type="text" class="form-control" id="count" >
         </div>
         <div class="mb-3">
-            <label for="price" class="form-label">Price</label>
+            <label for="price" class="form-label"><b>개당 가격 :</b></label>
             <input type="text" class="form-control" id="price" >
         </div>
         <div>
             <input type="file" id="File" name="file" />
         </div>
-        <button id="Button">전송</button>
+        <a class="btn btn-success" type="button" id="Button">전송</a>
     </div>
 </div>
+
+
 <script>
         const buttonElement=document.querySelector("#Button");
         let FileElement=document.querySelector("#File");

@@ -55,4 +55,9 @@ public class Board extends TimeEntity {
         comments.add(comment);
         comment.setBoard(this);
     }
+
+
+    public void incrementReadCount(){
+        readCount++;
+    }
 }

@@ -66,6 +66,7 @@ public class ItemRestController {
                         .build();
 
                 ItemDto itemDTO= ItemDto.builder()
+                        .id(item.getId())
                         .name(item.getName())
                         .count(item.getCount())
                         .description(item.getDescription())

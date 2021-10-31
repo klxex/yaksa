@@ -1,0 +1,27 @@
+<!Doctype html>
+<html xmlns:th="www.thymeleaf.org">
+<head>
+    <title>구매 페이지</title>
+    <th:block th:insert="fragment/header"></th:block>
+</head>
+<body>
+    <th:block th:include="fragment/bodyHeader::bodyHeader"/>
+    <div class="container-fluid p-5 text-center">
+        <h1>약 검색하기</h1>
+    </div>
+    <div class="container mt-3" style="margin: 0 auto 0 auto;width:80%">
+           <div class="row">
+                    <div class="col-md-3" style="margin-left:auto"><img style="width:100%" th:with="a='/images/'+${itemDto.fileDTO.id}" th:src="${a}"></img></div>
+                    <div class="col-md-3" style="margin-right:auto">
+                        약 이름: <span th:text="${itemDto.name}"></span></br>
+                        약 설명: <span th:text="${itemDto.description}"></span></br>
+                        약 가격: <span th:text="${itemDto.price}"></span> 원</br>
+                        재고: <span th:text="${itemDto.count}"></span> 개</br>
+                        구매 수량:<input type="text"/></br>
+                        <a class="btn btn-primary btn-alert mt-3" type="button" id="buy">장바구니 담기</a>
+                    </div>
+           </div>
+
+    </div>
+</body>
+</html>

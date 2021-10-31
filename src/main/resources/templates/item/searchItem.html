@@ -62,7 +62,8 @@
             cardBody.setAttribute("class","card-body");
 
             btn.setAttribute("class","btn btn-primary");
-            btn.append("장바구니 담기");
+            btn.append("구매하러 가기");
+            btn.setAttribute("href","/getItems/"+lists[i].id);//
 
             cardTitle.append(lists[i].name);
             cardText.append(lists[i].description);

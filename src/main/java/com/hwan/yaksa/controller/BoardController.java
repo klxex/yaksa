@@ -47,7 +47,6 @@ public class BoardController {
     public String createWord(@Valid  @ModelAttribute("boardDTO") BoardDto boardDTO, @LoginUser SessionUser sessionUser) {
          boardServiceImpl.createBoard(boardDTO,sessionUser);
          return "redirect:/searchBoard";
-
     }
 
 

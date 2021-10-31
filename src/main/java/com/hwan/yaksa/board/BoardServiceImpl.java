@@ -32,7 +32,9 @@ public class BoardServiceImpl implements BoardService {
     }
 
     public Board find(Long id){
-        return boardRepository.findById(id).get();
+        Board board = boardRepository.findById(id).get();
+        board.incrementReadCount();
+        return board;
     }
 
     public void delete(Long id){

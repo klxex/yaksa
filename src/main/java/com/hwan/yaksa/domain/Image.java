@@ -15,7 +15,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 public class Image {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name="image_id")
     public Long id;
     public String dir;

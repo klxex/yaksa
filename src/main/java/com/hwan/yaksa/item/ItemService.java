@@ -12,4 +12,5 @@ public interface ItemService {
     public void insertItem(ItemDto itemDTO, MultipartFile multipartFile);
     public List<Item> findAllItem();
     public File searchImage(Long id);
+    public Item searchItem(Long id);
 }
