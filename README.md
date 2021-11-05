@@ -6,8 +6,8 @@ This is for practicing Web Backend,.Yaksa program provides drug-related knowledg
 클라우드 서비스: aws amazon ec2
 
 ## 프로젝트 내용
-주제: 약 및 비타민 관련 서비스 제공
-구현 예정 기능:
+### 약 및 비타민 관련 서비스 제공
+#### 구현 예정 기능:
 1. 소셜 로그인 서비스 기능
 2. 관리자 
 비타민 등록 및 삭제 + 판매 기능 구현 예정
