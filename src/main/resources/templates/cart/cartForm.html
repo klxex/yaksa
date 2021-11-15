@@ -13,7 +13,7 @@
       hello world
     </section>
 
-    <div th:each = "cartItem:${cartDto.cartItems}">
+    <div class="item" th:each = "cartItem:${cartDto.cartItems}">
         아이템 이름:<span th:text = "${cartItem.item.name}"></span> <br/>
         아이템 설명:<span th:text = "${cartItem.item.description}"></span>
     </div>
