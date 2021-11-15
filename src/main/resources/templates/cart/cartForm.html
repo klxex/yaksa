@@ -9,14 +9,22 @@
 
 <body>
     <th:block th:include="fragment/bodyHeader"/>
-    <h1> 장바구니</h1>
     <section>
-      hello world
+      장바구니
     </section>
+    <article>
     <div class="item" th:each = "cartItem:${cartDto.cartItems}">
         아이템 이름:<span th:text = "${cartItem.item.name}"></span> <br/>
         아이템 설명:<span th:text = "${cartItem.item.description}"></span>
     </div>
+    </article>
+
+    <aside>
+        사이드입니다.
+    </aside>
+    <footer>
+        footer 입니다
+    </footer>
 </body>
 
 </html>
