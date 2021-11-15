@@ -9,6 +9,7 @@ import lombok.Setter;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Getter
 @Setter
@@ -72,6 +73,13 @@ public class Account extends TimeEntity {
         boards.add(board);
         board.setAccount(this);
     }
+
+    public void addCart(Cart cart){
+        this.setCart(cart);
+        cart.setAccount(this);
+    }
+
+
 
 
 }

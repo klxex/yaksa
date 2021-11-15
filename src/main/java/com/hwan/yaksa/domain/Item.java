@@ -49,6 +49,20 @@ public class Item extends TimeEntity {
     }
 
 
+    public void addStock(int quantity){
+        count += quantity;
+    }
+
+    public void removeStock(int quantity){
+        int restStock = this.count - quantity;
+        count = restStock;
+    }
+
+
+
+
+
+
 
 
 

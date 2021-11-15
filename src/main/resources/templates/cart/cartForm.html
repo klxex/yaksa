@@ -1,0 +1,22 @@
+
+
+
+<html xmlns:th = "http://www.thymeleaf.org">
+<head>
+    <th:block th:include="fragment/header"/>
+</head>
+
+<body>
+    <th:block th:include="fragment/bodyHeader"/>
+    <h1> 장바구니</h1>
+    <section>
+      hello world
+    </section>
+
+    <div th:each = "cartItem:${cartDto.cartItems}">
+        아이템 이름:<span th:text = "${cartItem.item.name}"></span> <br/>
+        아이템 설명:<span th:text = "${cartItem.item.description}"></span>
+    </div>
+</body>
+
+</html>

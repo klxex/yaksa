@@ -18,10 +18,32 @@
                         약 가격: <span th:text="${itemDto.price}"></span> 원</br>
                         재고: <span th:text="${itemDto.count}"></span> 개</br>
                         구매 수량:<input type="text"/></br>
-                        <a class="btn btn-primary btn-alert mt-3" type="button" id="buy">장바구니 담기</a>
+
+                        <form th:object="${itemDto}" method="post" action="http://localhost:8080/cart/createCart">
+<!--                            private Long id;-->
+<!--                            private String name;-->
+<!--                            private String description;-->
+<!--                            private int count;-->
+<!--                            private int price;-->
+<!--                            private FileDto fileDTO;-->
+                            <input type="hidden" th:field="*{id}"/>
+                            <input type="hidden" th:field="*{name}"/>
+                            <input type="hidden" th:field="*{description}"/>
+                            <input type="hidden" th:field="*{price}"/>
+                            <input type="hidden" th:field="*{count}"/>
+                            <input type="submit" class="btn btn-primary btn-alert mt-3" id="buy">장바구니 담기</input>
+                        </form>
                     </div>
            </div>
-
     </div>
+
+    <script>
+<!--        const buyElement = document.querySelector("#buy");-->
+<!--        function A(){-->
+<!--           const url = "http://localhost:8080/";-->
+
+<!--           axios.ggdgdgd-->
+<!--        }-->
+    </script>
 </body>
 </html>

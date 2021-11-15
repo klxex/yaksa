@@ -3,10 +3,13 @@ package com.hwan.yaksa.authLogin.dto;
 
 import com.hwan.yaksa.domain.user.Account;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.io.Serializable;
 
-@Getter
+@Getter @Setter
+@NoArgsConstructor
 public class SessionUser implements Serializable {
     private String name;
     private String email;

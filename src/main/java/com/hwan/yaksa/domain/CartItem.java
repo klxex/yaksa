@@ -25,5 +25,14 @@ public class CartItem {
 
     private int count;
 
+    public static CartItem createCartItem(Item item,int count){
+        CartItem cartItem = new CartItem();
+        cartItem.setItem(item);
+        cartItem.setCount(count);
+        item.getCartItems().add(cartItem);
+
+        return cartItem;
+    }
+
 
 }
