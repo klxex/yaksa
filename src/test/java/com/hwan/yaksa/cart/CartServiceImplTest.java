@@ -15,9 +15,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-
-@Transactional
 @SpringBootTest
+@Transactional
 class CartServiceImplTest {
 
     @Autowired
