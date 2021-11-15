@@ -15,14 +15,14 @@ import static org.junit.jupiter.api.Assertions.*;
 @SpringBootTest
 class ItemServiceImplTest {
 
-    @PersistenceContext
-    private EntityManager em;
-
-    @Test
-    public void Hello(){
-
-        assertEquals(3,3);
-    }
-
+//    @PersistenceContext
+//    private EntityManager em;
+//
+//    @Test
+//    public void Hello(){
+//
+//        assertEquals(3,3);
+//    }
+//
 
 }
