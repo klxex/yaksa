@@ -19,7 +19,7 @@
                         재고: <span th:text="${itemDto.count}"></span> 개</br>
                         구매 수량:<input type="text"/></br>
 
-                        <form th:object="${itemDto}" method="post" action="http://localhost:8080/cart/createCart">
+                        <form th:object="${itemDto}" method="post" action="/cart/createCart">
 <!--                            private Long id;-->
 <!--                            private String name;-->
 <!--                            private String description;-->
