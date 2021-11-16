@@ -1,6 +1,5 @@
 package com.hwan.yaksa.formLogin;
 
-import com.hwan.yaksa.authLogin.dto.SessionUser;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -9,8 +8,6 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
-
-import javax.servlet.http.HttpSession;
 
 @RequiredArgsConstructor
 @Component
@@ -23,7 +20,7 @@ public class FormAuthenticationProvider implements AuthenticationProvider {
         String username = authentication.getName();
         String password = (String) authentication.getCredentials();
 
-        AccountContext accountContext = (AccountContext) customUserDetailsService.loadUserByUsername(username);
+      AccountContext accountContext = (AccountContext) customUserDetailsService.loadUserByUsername(username);
         String passwordFromDb = accountContext.getAccount().getPassword();
 
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder(); //주입 확인 필요

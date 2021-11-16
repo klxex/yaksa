@@ -1,4 +1,4 @@
-package com.hwan.yaksa.board;
+package com.hwan.yaksa.repository;
 
 import com.hwan.yaksa.domain.Board;
 import com.hwan.yaksa.domain.Comment;

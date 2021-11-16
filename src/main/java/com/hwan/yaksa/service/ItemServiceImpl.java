@@ -1,7 +1,10 @@
-package com.hwan.yaksa.item;
+package com.hwan.yaksa.service;
 
 import com.hwan.yaksa.domain.Image;
 import com.hwan.yaksa.domain.Item;
+import com.hwan.yaksa.dto.ItemDto;
+import com.hwan.yaksa.repository.ImageRepository;
+import com.hwan.yaksa.repository.ItemRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;

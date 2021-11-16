@@ -2,9 +2,12 @@ package com.hwan.yaksa.controller;
 
 import com.hwan.yaksa.authLogin.LoginUser;
 import com.hwan.yaksa.authLogin.dto.SessionUser;
-import com.hwan.yaksa.board.*;
 import com.hwan.yaksa.domain.Board;
 import com.hwan.yaksa.domain.Comment;
+import com.hwan.yaksa.dto.CommentDto;
+import com.hwan.yaksa.dto.CommentResponseDto;
+import com.hwan.yaksa.service.BoardService;
+import com.hwan.yaksa.service.CommentService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 

@@ -29,7 +29,7 @@ public class Order extends TimeEntity {
     private Delivery delivery;
 
     @OneToOne
-    private Card card;
+    private Payment payment;
 
     @OneToMany(mappedBy="order")
     private List<OrderItem> orderItems = new ArrayList<>();

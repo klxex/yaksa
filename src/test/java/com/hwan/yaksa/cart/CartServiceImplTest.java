@@ -1,19 +1,7 @@
 package com.hwan.yaksa.cart;
 
-import com.hwan.yaksa.authLogin.dto.SessionUser;
-import com.hwan.yaksa.domain.Cart;
-import com.hwan.yaksa.domain.Item;
-import com.hwan.yaksa.domain.user.Account;
-import com.hwan.yaksa.domain.user.Role;
-import com.hwan.yaksa.formLogin.AccountRepository;
-import com.hwan.yaksa.item.ItemDto;
-import com.hwan.yaksa.item.ItemRepository;
-import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.transaction.annotation.Transactional;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 @Transactional

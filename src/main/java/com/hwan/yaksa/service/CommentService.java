@@ -1,6 +1,9 @@
-package com.hwan.yaksa.board;
+package com.hwan.yaksa.service;
 
 
+import com.hwan.yaksa.repository.BoardRepository;
+import com.hwan.yaksa.dto.CommentDto;
+import com.hwan.yaksa.repository.CommentRepository;
 import com.hwan.yaksa.domain.Board;
 import com.hwan.yaksa.domain.Comment;
 import com.hwan.yaksa.domain.user.Account;

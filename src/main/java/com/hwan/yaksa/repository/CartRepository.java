@@ -1,4 +1,4 @@
-package com.hwan.yaksa.cart;
+package com.hwan.yaksa.repository;
 
 import com.hwan.yaksa.domain.Cart;
 import com.hwan.yaksa.domain.user.Account;

@@ -3,19 +3,13 @@ package com.hwan.yaksa.controller;
 
 import com.hwan.yaksa.authLogin.LoginUser;
 import com.hwan.yaksa.authLogin.dto.SessionUser;
-import com.hwan.yaksa.cart.CartRepository;
-import com.hwan.yaksa.cart.CartRequestDto;
-import com.hwan.yaksa.cart.CartResponseDto;
-import com.hwan.yaksa.cart.CartService;
-import com.hwan.yaksa.formLogin.AccountRepository;
-import com.hwan.yaksa.item.ItemDto;
+import com.hwan.yaksa.dto.CartResponseDto;
+import com.hwan.yaksa.service.CartService;
+import com.hwan.yaksa.dto.ItemDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 @RequiredArgsConstructor
 @RequestMapping("/cart")
@@ -31,8 +25,8 @@ public class CartController {
     }
 
     @PostMapping("/createCart")
-    public String addCartItem(Model model, @LoginUser SessionUser user, @ModelAttribute ItemDto itemDto){
-        cartService.addCartItem(user,itemDto);
+    public String addCartItem(Model model, @LoginUser SessionUser user, @ModelAttribute ItemDto itemDto,@RequestParam(name="quantity",required=false,defaultValue="1") int quantity){
+        cartService.addCartItem(user,itemDto,quantity);
         return "redirect:/cart/cartForm";
     }
 

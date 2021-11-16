@@ -17,20 +17,15 @@
                         약 설명: <span th:text="${itemDto.description}"></span></br>
                         약 가격: <span th:text="${itemDto.price}"></span> 원</br>
                         재고: <span th:text="${itemDto.count}"></span> 개</br>
-                        구매 수량:<input type="text"/></br>
+
 
                         <form th:object="${itemDto}" method="post" action="/cart/createCart">
-<!--                            private Long id;-->
-<!--                            private String name;-->
-<!--                            private String description;-->
-<!--                            private int count;-->
-<!--                            private int price;-->
-<!--                            private FileDto fileDTO;-->
                             <input type="hidden" th:field="*{id}"/>
                             <input type="hidden" th:field="*{name}"/>
                             <input type="hidden" th:field="*{description}"/>
                             <input type="hidden" th:field="*{price}"/>
                             <input type="hidden" th:field="*{count}"/>
+                            구매 수량:<input name="quantity" type="text"/></br>
                             <input type="submit" class="btn btn-primary btn-alert mt-3" id="buy">장바구니 담아버리기</input>
                         </form>
                     </div>

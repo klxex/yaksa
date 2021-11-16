@@ -1,6 +1,7 @@
-package com.hwan.yaksa.board;
+package com.hwan.yaksa.service;
 
 import com.hwan.yaksa.authLogin.dto.SessionUser;
+import com.hwan.yaksa.dto.BoardDto;
 import com.hwan.yaksa.domain.Board;
 import org.springframework.data.domain.Page;
 

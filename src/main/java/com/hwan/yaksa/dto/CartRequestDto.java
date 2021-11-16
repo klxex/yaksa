@@ -1,4 +1,4 @@
-package com.hwan.yaksa.cart;
+package com.hwan.yaksa.dto;
 
 
 public class CartRequestDto {

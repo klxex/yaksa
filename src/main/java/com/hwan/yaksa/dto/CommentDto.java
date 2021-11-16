@@ -1,9 +1,6 @@
-package com.hwan.yaksa.board;
+package com.hwan.yaksa.dto;
 
 import com.hwan.yaksa.authLogin.dto.SessionUser;
-import com.hwan.yaksa.domain.Board;
-import com.hwan.yaksa.domain.Comment;
-import com.hwan.yaksa.domain.user.Account;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

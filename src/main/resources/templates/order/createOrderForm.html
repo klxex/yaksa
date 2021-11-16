@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="www.thymeleaf.org">
+<head>
+    <title>주문 양식</title>
+</head>
+<body>
+
+<div class="container-fluid p-5 text-center">
+    <h1>주문 정보</h1>
+</div>
+<div>
+    <form action ="/order/createOrder" method="post" >
+        <div class="order--list">
+            구매 리스트:
+        </div>
+        <div class="total--fee">
+            총 구매 금액:
+        </div>
+        <div class="payment--card">
+            결제 카드:
+        </div>
+        <div class="delivery">
+            배송지 정보:
+        </div>
+        <input type="submit" value="전송">
+    </form>
+</div>
+
+<script>
+
+</script>
+</body>
+</html>

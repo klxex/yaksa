@@ -1,9 +1,9 @@
 package com.hwan.yaksa.controller;
 
 import com.hwan.yaksa.domain.Item;
-import com.hwan.yaksa.item.FileDto;
-import com.hwan.yaksa.item.ItemDto;
-import com.hwan.yaksa.item.ItemService;
+import com.hwan.yaksa.dto.FileDto;
+import com.hwan.yaksa.dto.ItemDto;
+import com.hwan.yaksa.service.ItemService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

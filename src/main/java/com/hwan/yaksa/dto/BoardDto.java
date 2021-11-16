@@ -1,4 +1,4 @@
-package com.hwan.yaksa.board;
+package com.hwan.yaksa.dto;
 
 import com.hwan.yaksa.domain.Board;
 import lombok.*;

@@ -17,12 +17,14 @@ public class Delivery {
     @Column(name = "delivery_id")
     private Long id;
 
-
     @OneToOne(mappedBy="delivery",fetch= LAZY)
     private Order order;
 
-//    @Embedded
-//    private Address address;
+    @OneToOne
+    @JoinColumn(name="address_id")
+    private Address address;
+
+    private String companyName;
 
     @Enumerated(EnumType.STRING)
     private DeliveryStatus status; //READY , COMP

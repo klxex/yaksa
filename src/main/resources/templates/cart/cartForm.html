@@ -10,7 +10,7 @@
 <body>
     <th:block th:include="fragment/bodyHeader"/>
     <section>
-      장바구니
+      장바구니 페이지
     </section>
     <article>
     <div class="item" th:each = "cartItem:${cartDto.cartItems}">
@@ -25,6 +25,7 @@
     <footer>
         footer 입니다
     </footer>
+    <a class="btn btn-primary" href="/order/getCreateOrderForm" type="button">주문하기</a>
 </body>
 
 </html>

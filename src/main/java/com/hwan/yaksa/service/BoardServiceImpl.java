@@ -1,6 +1,8 @@
-package com.hwan.yaksa.board;
+package com.hwan.yaksa.service;
 
 import com.hwan.yaksa.authLogin.dto.SessionUser;
+import com.hwan.yaksa.dto.BoardDto;
+import com.hwan.yaksa.repository.BoardRepository;
 import com.hwan.yaksa.domain.Board;
 import com.hwan.yaksa.domain.user.Account;
 import com.hwan.yaksa.formLogin.AccountRepository;
